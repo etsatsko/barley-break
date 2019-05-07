@@ -39,13 +39,17 @@ namespace Barley_break
         private void RefreshButton()
         {
             for (int position = 0; position < 16; position++)
-                button(position).Content = game.GetNumber(position).ToString();
+            {
+                int number = game.GetNumber(position);
+                button(position).Content = number.ToString();
+                if (number == 0)
+                    button(position).Visibility = Visibility.Collapsed;
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             int position = Convert.ToInt16(((Button)sender).Tag);
-            button(position).Content = position.ToString();
         }
 
         private Button button(int position)
