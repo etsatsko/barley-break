@@ -25,6 +25,11 @@ namespace Barley_break
             game = new Game();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            StartGame();
+        }
+
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             StartGame();
@@ -75,5 +80,7 @@ namespace Barley_break
                 default: return null;
             }
         }
+
+        
     }
 }

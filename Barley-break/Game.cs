@@ -22,7 +22,7 @@ namespace Barley_break
         {
             for (int x = 0; x < size; x++)
                 for (int y = 0; y < size; y++)
-                    map[x, y] = ConvertCoordsToRosition(x, y) + 1;
+                    map[x, y] = ConvertCoordsToPosition(x, y) + 1;
             spaceX = size - 1;
             spaceY = size - 1;
             map[spaceX, spaceY] = 0;
@@ -37,7 +37,7 @@ namespace Barley_break
             return map[x, y];
         }
 
-        private int ConvertCoordsToRosition (int x, int y)
+        private int ConvertCoordsToPosition (int x, int y)
         {
             return y * size + x;
         }
