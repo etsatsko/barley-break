@@ -41,6 +41,8 @@ namespace Barley_break
         {
             int x, y;
             ConvertPositionToCoords(position, out x, out y);
+            if (Math.Abs(spaceX - x) + Math.Abs(spaceY - y) != 1)
+                return;
             map[spaceX, spaceY] = map[x, y];
             map[x, y] = 0;
             spaceX = x;
