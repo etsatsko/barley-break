@@ -37,6 +37,16 @@ namespace Barley_break
             return map[x, y];
         }
 
+        public void Shift(int position)
+        {
+            int x, y;
+            ConvertPositionToCoords(position, out x, out y);
+            map[spaceX, spaceY] = map[x, y];
+            map[x, y] = 0;
+            spaceX = x;
+            spaceY = y;
+        }
+
         private int ConvertCoordsToPosition (int x, int y)
         {
             return y * size + x;

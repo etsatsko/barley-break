@@ -47,14 +47,19 @@ namespace Barley_break
             {
                 int number = game.GetNumber(position);
                 button(position).Content = number.ToString();
-                if (number == 0)
+                if (number > 0)
+                    button(position).Visibility = Visibility.Visible;
+                else if (number == 0)
                     button(position).Visibility = Visibility.Collapsed;
+
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             int position = Convert.ToInt16(((Button)sender).Tag);
+            game.Shift(position);
+            RefreshButton();
         }
 
         private Button button(int position)
