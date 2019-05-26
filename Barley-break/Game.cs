@@ -12,6 +12,7 @@ namespace Barley_break
         int[,] map;
         int spaceX;
         int spaceY;
+        static Random random = new Random();
 
         public Game()
         {
@@ -49,13 +50,36 @@ namespace Barley_break
             spaceY = y;
         }
 
+        public void ShiftRandom()
+        {
+            int number = random.Next(0, 4);
+            int x = spaceX;
+            int y = spaceY;
+            switch(number)
+            {
+                case 0: x--; break;
+                case 1: x++; break;
+                case 2: y--; break;
+                case 3: y++; break;
+            }
+            Shift(ConvertCoordsToPosition(x, y));
+        }
+
         private int ConvertCoordsToPosition (int x, int y)
         {
+            if (x < 0) x = 0;
+            if (x > size - 1) x = size - 1;
+            if (y < 0) y = 0;
+            if (y > size - 1) y = size - 1;
+
             return y * size + x;
         }
 
         private void ConvertPositionToCoords(int position, out int x, out int y)
         {
+            if (position < 0) position = 0;
+            if (position > size * size - 1) position = size * size - 1;
+
             x = position % size;
             y = position / size;
         }

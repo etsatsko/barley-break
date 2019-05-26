@@ -38,6 +38,8 @@ namespace Barley_break
         private void StartGame()
         {
             game.Start();
+            for (int i = 0; i < 100; i++)
+                game.ShiftRandom();
             RefreshButton();
         }
 
