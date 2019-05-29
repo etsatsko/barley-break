@@ -55,6 +55,7 @@ namespace Barley_break
             int number = random.Next(0, 4);
             int x = spaceX;
             int y = spaceY;
+
             switch(number)
             {
                 case 0: x--; break;
@@ -62,6 +63,7 @@ namespace Barley_break
                 case 2: y--; break;
                 case 3: y++; break;
             }
+
             Shift(ConvertCoordsToPosition(x, y));
         }
 
