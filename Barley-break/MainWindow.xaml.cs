@@ -62,6 +62,11 @@ namespace Barley_break
             int position = Convert.ToInt16(((Button)sender).Tag);
             game.Shift(position);
             RefreshButton();
+            if (game.CheckNumber())
+            {
+                MessageBox.Show("You win!");
+                StartGame();
+            }
         }
 
         private Button button(int position)
@@ -89,5 +94,6 @@ namespace Barley_break
         }
 
         
+
     }
 }

@@ -26,7 +26,21 @@ namespace Barley_break
                     map[x, y] = ConvertCoordsToPosition(x, y) + 1;
             spaceX = size - 1;
             spaceY = size - 1;
-            map[spaceX, spaceY] = 0;
+            map[spaceX, spaceY] = 0; 
+        }
+
+        public bool CheckNumber()
+        {
+            if (!(spaceX == size - 1 && spaceY == size - 1))
+                return false;
+            for (int x = 0; x < size; x++)
+                for (int y = 0; y < size; y++)
+                {
+                    if (!(x == size - 1 && y == size - 1))
+                        if (map[x, y] != ConvertCoordsToPosition(x, y) + 1)
+                            return false;
+                }      
+            return true;
         }
 
         public int GetNumber(int position)
